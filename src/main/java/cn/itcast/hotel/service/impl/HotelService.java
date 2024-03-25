@@ -34,14 +34,16 @@ import java.util.Map;
 public class HotelService extends ServiceImpl<HotelMapper, Hotel> implements IHotelService {
     @Autowired
     private RestHighLevelClient client;
+
+
     @Override
-    public Map<String, List<String>> filters() {
+    public Map<String, List<String>> getFilters(RequestParams params) {
         try {
             // 1.准备Request
             SearchRequest request = new SearchRequest("hotel");
             // 2.准备DSL
             // 2.1.query
-            //buildBasicQuery(request);
+            buildBasicQuery(params, request);
             // 2.2.设置size
             request.source().size(0);
             // 2.3.聚合

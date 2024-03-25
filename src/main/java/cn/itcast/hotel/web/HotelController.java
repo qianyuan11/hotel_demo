@@ -19,9 +19,14 @@ public class HotelController {
     @Autowired
     private IHotelService hotelService;
 
-    @PostMapping("filters")
+    //希望过滤条件和结果一致，比如虹桥酒店在北京没出现，城市的过滤卡中就不应该就这里
+    /*@PostMapping("filters")
     public Map<String, List<String>> getFilters(@RequestBody RequestParams params){
         return hotelService.filters();
+    }*/
+    @PostMapping("filters")
+    public Map<String, List<String>> getFilters(@RequestBody RequestParams params){
+        return hotelService.getFilters(params);
     }
     // 搜索酒店数据
     @PostMapping("/list")

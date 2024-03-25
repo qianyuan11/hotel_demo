@@ -13,10 +13,10 @@ import java.util.Map;
 class HotelDemoApplicationTests {
     @Autowired
     private IHotelService hotelService;
-    @Test
+    /*@Test
     void contextLoads() {
         Map<String, List<String>> filters = hotelService.filters();
         System.out.println(filters);
-    }
+    }*/
 
 }
